@@ -1,7 +1,4 @@
-import React from 'react'
 
 export default function Home() {
-  return (
-    <div>Homapage</div>
-  )
+  throw new Error('Error in Home');  
 }
