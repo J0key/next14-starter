@@ -1,7 +1,9 @@
+import Image from 'next/image'
 import React from 'react'
 
 export default function Blog() {
   return (
-    <div>Blog page</div>
+    <div>blog    </div>
+    
   )
 }

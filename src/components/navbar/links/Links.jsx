@@ -41,7 +41,7 @@ export default function Links({ className }) {
               }`}
             >
               {link.title}
-            </Link>
+            </Link> 
           );
         })}
         {session ? (
@@ -87,13 +87,13 @@ export default function Links({ className }) {
         <div className="absolute top-0 right-0 h-[100vh] w-1/2 bg-gray-800 text-white md:hidden flex flex-col items-center z-0">
           {links.map((link, index) => {
             const isActive = pathName === link.path;
-            const marginTopClass = index === 0  && open ? "mt-11" : "";
+            const marginTopClass = index === 0  && open ? "mt-11" : "mt-4";
 
             return (
               <Link
                 key={link.title}
                 href={link.path}
-                className={`py-2 px-4 w-full text-center ${marginTopClass} ${
+                className={`py-2 px-4 text-center rounded-full ${marginTopClass} ${
                   isActive
                     ? "bg-white text-black"
                     : "hover:bg-white hover:text-black"
@@ -109,19 +109,19 @@ export default function Links({ className }) {
               {isAdmin && (
                 <Link
                   href="/admin"
-                  className={`py-2 px-4 w-full text-center ${
+                  className={`py-2 px-4 rounded-full mt-4 text-center ${
                     pathName === "/admin"
-                      ? "bg-white text-black"
+                      ? "bg-white  text-black"
                       : "hover:bg-white hover:text-black"
                   }`}
-                  onClick={() => setOpen(false)}
+                  // onClick={() => setOpen(false)}
                 >
                   Admin
                 </Link>
               )}
               <Link
                 href=""
-                className="bg-white text-black py-2 px-4 w-full text-center"
+                className=" text-white py-2 px-6 mt-4 rounded-md border border-spacing-1 border-white text-center"
                 onClick={() => setOpen(false)}
               >
                 Logout
@@ -130,7 +130,7 @@ export default function Links({ className }) {
           ) : (
             <Link
               href="/login"
-              className="bg-white text-black py-2 px-4 w-full text-center"
+              className="bg-white text-black py-2 px-4 mt-4 text-center"
               onClick={() => setOpen(false)}
             >
               Login
