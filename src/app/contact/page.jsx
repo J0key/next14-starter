@@ -1,8 +1,19 @@
-import React from "react";
+// use client digunakan untuk fitur yang memerlukan interaksi dengan user, seperti: logout dkk
+'use client'
+
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Contact() {
+  const [isClient, setIsClient] = useState(false)
+
+  // supaya yang di run sama sama dari client
+  useEffect(()=> {
+    setIsClient(true)
+    console.log('sudah dijalankan')
+
+  }, [])
   return (
     <div className="flex my-24 gap-8 justify-between">
       <div className="w-1/2 flex justify-center items-center">

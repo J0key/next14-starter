@@ -1,9 +1,13 @@
-import Image from 'next/image'
 import React from 'react'
+import PostCard from '../../components/postCard/PostCard';
+import {links} from '../../data/post'
 
 export default function Blog() {
+  console.log(links)
   return (
-    <div>blog    </div>
+    <div className='flex flex-wrap '>
+      <PostCard links={links}/>
+    </div>
     
   )
 }
