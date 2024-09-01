@@ -1,12 +1,20 @@
 "use client"
 
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import React from 'react'
 
 export default function NavigationTestPage() {
 
-    const router = useRouter(false)
+
+    // CLIENT SIDE NAVIGATION
+    const router = useRouter()
+    const pathname = usePathname()
+    const searchParams = useSearchParams()
+
+    const q = searchParams.get('q')
+
+    console.log(q)
 
     const handleClick = () => {
         console.log('clicked')
