@@ -1,15 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import {  useRouter} from 'next/navigation'
-
+import { useState, useEffect, Suspense } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import React from "react";
+import PostUser from "../../../components/postUser/postUser";
 // import {findLinkBySlug} from '../../../data/post'
 
 export default function SinglePost({ params }) {
   // const link = findLinkBySlug(params.slug)
-  const router = useRouter()
+  const router = useRouter();
 
   const [post, setPost] = useState(null);
   const [isLoading, setLoading] = useState(true);
@@ -31,13 +31,18 @@ export default function SinglePost({ params }) {
   if (!post) return <p>No Post Found</p>;
 
   const handleClick = () => {
-    router.back() 
-}
+    router.back();
+  };
 
   // if(link){
   return (
     <div>
-      <button onClick={handleClick} className="mb-6 px-4 py-2 bg-white text-black font-semibold rounded-md">Back</button>
+      <button
+        onClick={handleClick}
+        className="mb-6 px-4 py-2 bg-white text-black font-semibold rounded-md"
+      >
+        Back
+      </button>
       <div className="flex gap-10">
         <div>
           <Image
@@ -52,25 +57,9 @@ export default function SinglePost({ params }) {
         </div>
         <div className="">
           <h1 className="mb-10">{post.title}</h1>
-          <div className="flex flex-wrap gap-10">
-            <div className="flex mb-10 gap-3">
-              <Image
-                src={"/noavatar.png"}
-                className="rounded-full"
-                alt=""
-                width={50}
-                height={50}
-              />
-              <div className="flex flex-col">
-                <p>Author</p>
-                <p>Tony Setiawan</p>
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <p>Publisher</p>
-              <p>-108893979800</p>
-            </div>
-          </div>
+          <Suspense fallback={<div>Loading...</div>}>
+            <PostUser userId={params.slug} />
+          </Suspense>
           <h1>{post.body}</h1>
         </div>
       </div>
