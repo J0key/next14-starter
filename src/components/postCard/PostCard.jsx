@@ -1,7 +1,7 @@
 
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import ImageCard from './ImageCard'
 // import Links from './links/Links';
 
 // export default function PostCard({links}) {
@@ -38,8 +38,8 @@ export default function PostCard({data}) {
               {/* for each postCard */}
               <div key={data.title}>
                   <div className='flex items-center  '>
-                    <Image className='h-[400px] w-[350px]' src={"https://i.pinimg.com/564x/cb/9c/5f/cb9c5fe7f6f8e88a97aeabfea86a333e.jpg"} alt=''  width={300} height={600} />
-                    <span className=' -rotate-90'>2023</span>
+                    <ImageCard/>
+                    <span className=' -rotate-90'>2023 </span>
                   </div>
                   <div className=''>
                     <p>{data.title}</p>
